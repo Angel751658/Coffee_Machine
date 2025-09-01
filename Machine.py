@@ -56,7 +56,7 @@ def make_coffee():
             case "4":
                 return
             case _ :
-                print("Opcion no valida")
+                print("Opción inválida")
 
 #
 def fill_machine():    
@@ -78,26 +78,44 @@ def fill_machine():
             case "1":   
                 agua_ingresada = input("Ingrese la cantidad de agua:")
                 water += agua_ingresada
+                print("El agua ha sido rellenada.")
                 continue
             case "2":                  
                 leche_ingresada = input("Ingrese la cantidad de leche:")
-                leche += leche_ingresada      
+                milk += leche_ingresada      
+                print("La leche ha sido rellenada.")
                 continue
             case "3":                  
                 beans_ingresados = input("Ingrese la cantidad de granos:")
                 beans += beans_ingresados            
+                print("Los granos han sido rellenada.")
                 continue
             case "4":
                 return
             case _ :
-                print("Opcion no valida")
+                print("Opción inválida")
 
 
 def withdraw_money():
-    print("Retirando dinero...")
+    global dinero
+
+    if dinero == 0:
+        print("No hay dinero en la máquina.")
+        return
+    
+    print(f"Ha retirado ${dinero}.")
+    
 
 def show_data():
-    print("Mostrando datos...")
+    global beans, cups, water, milk, dinero, cafes_vendidos
+    print("Datos de la máquina:")
+    print(f"Agua: {water}ml")
+    print(f"Leche: {milk}ml")
+    print(f"Café: {beans}g")
+    print(f"Dinero: ${dinero}")
+    print("Cafés vendidos:")
+    for i in cafes_vendidos:
+        print(f"  {i}: {cafes_vendidos[i]}")
 
 def exit_machine():
     print("Saliendo de la máquina...")
